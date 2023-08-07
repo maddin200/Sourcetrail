@@ -251,7 +251,7 @@ void UndoRedoController::handleMessage(MessageHistoryToPosition* message)
 	size_t index = 0;
 	const size_t activeIndex = message->index + m_historyOffset;
 
-	for (std::list<Command>::reverse_iterator rit = m_list.rbegin(); rit != m_list.rend(); rit++)
+	for (std::list<Command>::reverse_iterator rit = m_list.rbegin(); rit != m_list.rend(); ++rit)
 	{
 		if (rit->order == Command::ORDER_ACTIVATE)
 		{
@@ -646,7 +646,7 @@ void UndoRedoController::updateHistory()
 	int currentIndex = -1;
 	m_historyOffset = 0;
 
-	for (std::list<Command>::const_reverse_iterator it = m_list.rbegin(); it != m_list.rend(); it++)
+	for (std::list<Command>::const_reverse_iterator it = m_list.rbegin(); it != m_list.rend(); ++it)
 	{
 		if (m_iterator == it.base())
 		{
