@@ -288,11 +288,11 @@ std::vector<Id> SqliteIndexStorage::addLocalSymbols(const std::set<StorageLocalS
 		std::pair<std::wstring, std::wstring> name = splitLocalSymbolName(data.name);
 		if (name.second.size())
 		{
-			auto it = m_tempLocalSymbolIndex.find(name.first);
-			if (it != m_tempLocalSymbolIndex.end())
+			auto myit = m_tempLocalSymbolIndex.find(name.first);
+			if (myit != m_tempLocalSymbolIndex.end())
 			{
-				auto it2 = it->second.find(name.second);
-				if (it2 != it->second.end())
+				auto it2 = myit->second.find(name.second);
+				if (it2 != myit->second.end())
 				{
 					symbolIds[i] = it2->second;
 				}
