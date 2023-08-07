@@ -1624,10 +1624,10 @@ void GraphController::groupNodesByParents(GroupType groupType)
 			groupNode->groupLayout = GroupLayout::BUCKET;
 			groupNode->name = name;
 
-			auto it = nodeIdtoParentMap.find(p.second[0]->tokenId);
-			if (it != nodeIdtoParentMap.end())
+			auto myit = nodeIdtoParentMap.find(p.second[0]->tokenId);
+			if (myit != nodeIdtoParentMap.end())
 			{
-				groupNode->tokenId = it->second.first;
+				groupNode->tokenId = myit->second.first;
 			}
 			m_topLevelAncestorIds[groupNode->tokenId] = groupNode->tokenId;
 			m_dummyNodes.push_back(groupNode);
