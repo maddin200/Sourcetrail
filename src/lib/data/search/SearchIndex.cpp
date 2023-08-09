@@ -265,9 +265,9 @@ std::multiset<SearchResult> SearchIndex::createScoredResults(
 					}
 				}
 
-				for (auto p: path.node->edges)
+				for (auto myp: path.node->edges)
 				{
-					const SearchEdge* edge = p.second;
+					const SearchEdge* edge = myp.second;
 					nextPaths.emplace_back(path.text + edge->s, path.indices, edge->target);
 				}
 			}
